@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Lab1_Sakun_Nikita</string>
+    <string name="company">Company</string>
+    <string name="apple">Apple</string>
+    <string name="samsung">Samsung</string>
+    <string name="google">Google</string>
+    <string name="xiaomi">Xiaomi</string>
+    <string name="sony">Sony</string>
+    <string name="type">Type</string>
+    <string name="_6s">6s</string>
+    <string name="note_7">Note 7</string>
+    <string name="pixel">Pixel</string>
+    <string name="mi_5">Mi 5</string>
+    <string name="textview4">TextView</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="ericson">Ericson</string>
+    <string name="open_file">Open File</string>
+    <string name="textview">TextView</string>
+
+
 </resources>

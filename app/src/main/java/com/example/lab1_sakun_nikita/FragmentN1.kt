@@ -1,6 +1,8 @@
 package com.example.lab1_sakun_nikita
 
 import android.content.Context.MODE_APPEND
+import android.content.Intent
+
 import android.os.Bundle
 
 import androidx.fragment.app.Fragment
@@ -11,7 +13,6 @@ import android.widget.*
 import android.widget.Toast
 
 
-
 import java.io.FileOutputStream
 import java.io.IOException
 
@@ -19,6 +20,7 @@ import java.io.IOException
 class FragmentN1 : Fragment() {
     private val FILE_NAME = "content.txt"
     private lateinit var btnEnter: Button
+    private lateinit var btnOpen: Button
     private lateinit var rgCompany: RadioGroup
     private lateinit var rgType: RadioGroup
 
@@ -33,11 +35,12 @@ class FragmentN1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        val useIntent = Intent(activity?.applicationContext, SecondActivity::class.java)
         val view: View = inflater.inflate(R.layout.fragment_n1, container, false)
         btnEnter = view.findViewById(R.id.btnEnter)
         rgCompany = view.findViewById(R.id.rgCompany)
         rgType = view.findViewById(R.id.rgType)
+        btnOpen = view.findViewById(R.id.openButton)
         btnEnter.setOnClickListener {
 
             val rb_company_id = rgCompany.checkedRadioButtonId
@@ -62,7 +65,8 @@ class FragmentN1 : Fragment() {
 
                 fos = context?.openFileOutput(FILE_NAME, MODE_APPEND)
                 fos?.write((rb_company.text.toString() + " " + rb_type.text.toString() + "\n").toByteArray())
-                Toast.makeText(activity?.applicationContext, "Файл сохранен", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity?.applicationContext, "Файл сохранен", Toast.LENGTH_LONG)
+                    .show()
             } catch (ex: IOException) {
                 Toast.makeText(activity?.applicationContext, "ERROR", Toast.LENGTH_LONG).show()
             } finally {
@@ -73,6 +77,9 @@ class FragmentN1 : Fragment() {
                 }
             }
 
+        }
+        btnOpen.setOnClickListener {
+            startActivity(useIntent)
         }
         val pre_checked_company = rgCompany.getChildAt(1) as RadioButton
         pre_checked_company.setChecked(true)
