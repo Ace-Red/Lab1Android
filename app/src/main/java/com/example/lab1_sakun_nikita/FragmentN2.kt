@@ -15,7 +15,7 @@ class FragmentN2 : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view:View = inflater.inflate(R.layout.fragment_n2,container,false)
         btnClear = view.findViewById(R.id.btnClear)
         textView3 = view.findViewById(R.id.textView3)
